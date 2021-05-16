@@ -75,7 +75,7 @@ xmrig::CommonConfig::CommonConfig() :
     m_syslog(false),
     m_watch(true),
     m_apiPort(0),
-    m_donateLevel(kDefaultDonateLevel),
+    m_donateLevel(0),
     m_printTime(60),
     m_state(NoneState)
 {
@@ -397,9 +397,7 @@ bool xmrig::CommonConfig::parseInt(int key, int arg)
         break;
 
     case DonateLevelKey: /* --donate-level */
-        if (arg >= kMinimumDonateLevel && arg <= 99) {
-            m_donateLevel = arg;
-        }
+        m_donateLevel = 0;
         break;
 
     case ApiPort: /* --api-port */
